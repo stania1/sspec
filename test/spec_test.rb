@@ -1,5 +1,5 @@
 require 'test/unit'
-require_relative '../src/spec'
+require_relative '../lib/spec'
 require 'pry'
 
 class TestDescribe < Test::Unit::TestCase

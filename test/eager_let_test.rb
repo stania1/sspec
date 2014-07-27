@@ -1,5 +1,5 @@
 require 'test/unit'
-require_relative '../src/spec'
+require_relative '../lib/spec'
 require 'pry'
 
 class TestEagerLet < Test::Unit::TestCase
@@ -11,7 +11,7 @@ class TestEagerLet < Test::Unit::TestCase
     describe 'something' do
       let!(:number) { Helper.number }
 
-      it 'has access to let-var' do
+      it 'has access to the eager-loaded number' do
         number.should == 0
         number.should == 0
       end

@@ -1,0 +1,5 @@
+sspec
+=====
+
+simple BDD framework
+

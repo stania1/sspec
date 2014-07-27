@@ -14,6 +14,14 @@ class ExampleGroup
   def it(description, &block)
     block.call
   end
+
+  def let(name, &block)
+    ExampleGroup.class_eval do
+      define_method(name.to_s) do
+        block.call
+      end
+    end
+  end
 end
 
 class Object

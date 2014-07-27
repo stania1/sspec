@@ -16,9 +16,19 @@ class ExampleGroup
   end
 
   def let(name, &block)
-    ExampleGroup.class_eval do
+    self.class.class_eval do
       define_method(name.to_s) do
         block.call
+      end
+    end
+  end
+
+  def let!(name, &block)
+    instance_variable_set("@#{name.to_s}", block.call)
+
+    self.class.class_eval do
+      define_method(name.to_s) do
+        eval "@#{name.to_s}"
       end
     end
   end
